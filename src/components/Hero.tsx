@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
       <div className="flex flex-wrap">
         <div className="w-full lg:w-1/2">
           <div className="flex flex-col items-center lg:items-start">
-            <h1 className="bg-gradient-to-r from-purple-400 via-indigo-400 to-purple-500 bg-clip-text pb-4 font-black tracking-tight text-transparent max-[450px]:text-[3.47rem] max-[320px]:text-4xl sm:text-6xl sm:font-medium md:text-7xl lg:mt-16">
+            <h1 className="bg-gradient-to-r from-purple-400 via-indigo-400 to-purple-500 bg-clip-text pb-4 text-4xl font-black tracking-tight text-transparent sm:text-6xl sm:font-medium md:text-7xl lg:mt-16">
               Bishoy Gamal
             </h1>
             <span className="bg-gradient-to-br from-neutral-300 via-neutral-400 to-neutral-500 bg-clip-text text-2xl tracking-tight text-transparent max-[450px]:text-center max-[450px]:text-xl lg:ms-1">
