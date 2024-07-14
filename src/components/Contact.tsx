@@ -1,39 +1,37 @@
-import { useState, type FormEvent } from "react";
-import { Schema } from "@/validation/ContactForm";
+import { useState } from "react";
+
+import { cn } from "@/lib/utils";
+import handleFormSubmit from "@/lib/handleFormSubmit";
 
 const ContactForm: React.FC = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const { value, error } = Schema.validate(
-    { email, message },
-    { abortEarly: false },
-  );
-  console.log({ value });
-  async function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("entry.2026335201", email);
-    formData.append("entry.1341696661", message);
-    const res = await fetch(
-      "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdrRpQCpybrWLc-nDmSE6DBiieDMi9gVF4cFBslJQceWK56YA/formResponse",
-      {
-        method: "POST",
-        body: formData,
-        mode: "no-cors",
-      },
-    );
-    console.log({ res });
-  }
+  const [hasError, setHasError] = useState(false);
+  const [feedback, setFeedback] = useState("");
 
   return (
-    <form className="my-4" onSubmit={handleSubmit} noValidate>
+    <form
+      className="mx-auto my-4 w-full lg:w-3/4"
+      onSubmit={(e) =>
+        handleFormSubmit(e, {
+          email,
+          hasError,
+          message,
+          setEmail,
+          setMessage,
+          setFeedback,
+          setHasError,
+        })
+      }
+      noValidate
+    >
       <label htmlFor="email">
         Your Email<sup className="text-purple-400">*</sup>
       </label>
       <input
         type="email"
         id="email"
-        className="my-2 w-full rounded-md border border-neutral-400 bg-transparent p-2"
+        className="my-2 w-full rounded-md border border-neutral-400 bg-transparent px-4 py-2 focus:border-purple-600 focus:outline-none focus:ring-0"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
@@ -42,16 +40,27 @@ const ContactForm: React.FC = () => {
       </label>
       <textarea
         id="message"
-        className="my-2 h-48 w-full resize-none rounded-md border border-neutral-400 bg-transparent p-2"
+        className="my-2 h-48 w-full resize-none rounded-md border border-neutral-400 bg-transparent px-4 py-2 focus:border-purple-600 focus:outline-none focus:ring-0"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       ></textarea>
       <button
-        className="rounded-md border border-neutral-400 px-8 py-2"
-        disabled={typeof error === "undefined" ? false : true}
+        className={cn(
+          "w-full rounded-md bg-purple-800 px-8 py-2 disabled:cursor-not-allowed disabled:border disabled:border-neutral-500 disabled:bg-transparent disabled:text-neutral-500",
+        )}
+        disabled={email === "" || message === ""}
       >
         Submit
       </button>
+      <p
+        className={cn(
+          "mt-4 p-4 text-center capitalize",
+          hasError ? "bg-rose-500" : "bg-emerald-600",
+          feedback === "" && "hidden",
+        )}
+      >
+        {feedback}
+      </p>
     </form>
   );
 };
