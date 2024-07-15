@@ -15,6 +15,10 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sitemap(),
-    partytown(),
+    partytown(({
+			config: {
+			  forward: ["dataLayer.push"],
+			},
+		}),
   ],
 });
