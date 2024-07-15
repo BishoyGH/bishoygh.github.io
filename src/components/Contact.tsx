@@ -1,7 +1,7 @@
 import { useState } from "react";
-
 import { cn } from "@/lib/utils";
 import handleFormSubmit from "@/lib/handleFormSubmit";
+import { motion } from "framer-motion";
 
 const ContactForm: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -10,7 +10,10 @@ const ContactForm: React.FC = () => {
   const [feedback, setFeedback] = useState("");
 
   return (
-    <form
+    <motion.form
+      initial={{ y: -100, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1 }}
       className="mx-auto my-4 w-full lg:w-3/4"
       onSubmit={(e) =>
         handleFormSubmit(e, {
@@ -34,6 +37,7 @@ const ContactForm: React.FC = () => {
         className="my-2 w-full rounded-md border border-neutral-400 bg-transparent px-4 py-2 focus:border-purple-600 focus:outline-none focus:ring-0"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        autoComplete="email"
       />
       <label htmlFor="message">
         Your Message<sup className="text-purple-400">*</sup>
@@ -61,14 +65,21 @@ const ContactForm: React.FC = () => {
       >
         {feedback}
       </p>
-    </form>
+    </motion.form>
   );
 };
 
 const Contact: React.FC = () => {
   return (
     <section className="border-b border-neutral-900 pb-20">
-      <h2 className="my-10 text-center text-4xl">Get In Touch</h2>
+      <motion.h2
+        initial={{ opacity: 0, y: -100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="my-10 text-center text-4xl"
+      >
+        Get In Touch
+      </motion.h2>
       <ContactForm />
     </section>
   );

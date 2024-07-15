@@ -1,5 +1,7 @@
-import project1 from "@/assets/1.webp";
-import project2 from "@/assets/2.webp";
+import PortfolioWebsite from "@/assets/projects/portfolio-website.webp";
+import ComingSoon from "@/assets/projects/coming-soon.webp";
+import QuoteGenerator from "@/assets/projects/quote-generator.webp";
+import CustomCountDown from "@/assets/projects/countdown-creator.webp";
 
 export const HERO_CONTENT = `Hello, I'm Bishoy Gamal. With a strong foundation in front-end technologies and a continuous drive for learning, I build responsive and engaging websites that stand out. Let's collaborate and bring your vision to life.`;
 
@@ -37,7 +39,7 @@ export const EXPERIENCES = [
     ],
   },
   {
-    year: "2021 - Present",
+    year: "2021 - 2023",
     role: "Search Engine Evaluator",
     company: "Clickworker",
     description: [
@@ -63,6 +65,16 @@ export const EXPERIENCES = [
     skills: ["Team Leadership", "Problem Solving"],
   },
   {
+    year: "2017-2018",
+    role: "Coordinator",
+    company: "Litteratura Arts and Culture Center",
+    description: [
+      "Creating posters and social media graphics for events.",
+      "Develop creative concepts for events and courses at the center.",
+    ],
+    skills: ["Graphic Deign", "Canva", "Time Management"],
+  },
+  {
     year: "2011 - 2017",
     role: "Data Entry Clerk & IT Support",
     company: "Elmasa Security & Services",
@@ -81,17 +93,33 @@ export const EXPERIENCES = [
 export const PROJECTS = [
   {
     title: "Portfolio Website",
-    image: project1,
+    image: PortfolioWebsite,
     description:
       "A personal portfolio website showcasing projects, skills, and contact information.",
     technologies: ["Astro", "React", "TailwindCSS", "Framer Motion"],
   },
   {
     title: "E-Commerce Website",
-    image: project2,
+    image: ComingSoon,
     comingSoon: true,
     description:
       "A fully functional e-commerce website with features like product listing, shopping cart, and user authentication.",
     technologies: ["React", "Next.js", "TailwindCSS", "MySQL", "Prisma"],
+  },
+  {
+    title: "Quote Generator",
+    image: QuoteGenerator,
+    description:
+      "Create random quotes with the option to share them on Twitter.",
+    technologies: ["React", "TypeScript"],
+    url: "https://quote-generator-e0b.pages.dev/",
+  },
+  {
+    title: "Custom Countdown Creator",
+    image: CustomCountDown,
+    description:
+      "Develop a custom countdown feature and save the date in local storage for future access.",
+    technologies: ["JavaScript"],
+    url: "https://bishoygh.github.io/custom-countdown/",
   },
 ];
