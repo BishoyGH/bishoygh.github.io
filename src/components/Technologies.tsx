@@ -51,14 +51,14 @@ const Technologies: React.FC = () => {
         >
           <RiReactjsLine className="text-7xl" />
         </motion.div>
-        <motion.div // @ts-ignore
+        {/* <motion.div // @ts-ignore
           variants={iconVariants(5)}
           initial="initial"
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
           <TbBrandNextjs className="text-7xl" />
-        </motion.div>
+        </motion.div> */}
         <motion.div // @ts-ignore
           variants={iconVariants(2)}
           initial="initial"

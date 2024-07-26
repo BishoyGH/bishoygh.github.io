@@ -39,9 +39,9 @@ export const EXPERIENCES = [
     ],
   },
   {
-    year: "2021 - 2023",
+    year: "2021 - Present",
     role: "Search Engine Evaluator",
-    company: "Clickworker",
+    company: "Freelance",
     description: [
       "Helped maintain a seamless user experience by promptly addressing critical concerns related to navigation, functionality, or other technical issues within the platform.",
       "Optimized websites content and images to improve search engine rankings.",
