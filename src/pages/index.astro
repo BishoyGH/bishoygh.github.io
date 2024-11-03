@@ -1,14 +1,6 @@
 ---
 import "@/styles/globals.css";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Technologies from "@/components/Technologies";
-import Experience from "@/components/Experience";
-import Projects from "@/components/Projects";
-import Contact from "@/components/Contact";
-import { HERO_CONTENT } from "@/data";
-import PreviewImg from "@/assets/projects/portfolio-website.webp";
+import PreviewImg from "@/assets/projects/coming-soon.webp";
 import Logo from "public/favicon.svg";
 ---
 
@@ -33,7 +25,10 @@ import Logo from "public/favicon.svg";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={HERO_CONTENT} />
+    <meta
+      name="description"
+      content="Passionate web developer skilled in both front-end and back-end technologies. Proficient in core programming concepts and languages like JavaScript, PHP, and C++. Experienced with MERN Stack, WordPress, and UI tools like Figma. Eager to build a career in web development to create impactful, high-quality digital solutions with attention to detail and problem-solving at the forefront."
+    />
     <!--  Essential META Tags -->
     <meta property="og:title" content="BishoyGH" />
     <meta property="og:type" content="portfolio" />
@@ -48,7 +43,7 @@ import Logo from "public/favicon.svg";
   </head>
   <body>
     <div
-      class="overflow-x-hidden text-neutral-300 antialiased selection:bg-indigo-300 selection:text-indigo-900"
+      class="overflow-x-hidden text-neutral-300 antialiased selection:bg-emerald-300 selection:text-emerald-900"
     >
       <div class="fixed top-0 -z-10 h-full w-full">
         <div
@@ -57,13 +52,14 @@ import Logo from "public/favicon.svg";
         </div>
       </div>
       <div class="container mx-auto px-8">
-        <Navbar />
-        <Hero client:visible />
-        <About client:visible />
-        <Technologies client:visible />
-        <Experience client:visible />
-        <Projects client:visible />
-        <Contact client:visible />
+        <div class="grid min-h-screen place-content-center">
+          <img
+            src={PreviewImg.src}
+            alt="Coming Soon..."
+            class="mb-2 rounded-lg"
+          />
+          <h1 class="text-center text-sm">New Content Coming Soon</h1>
+        </div>
       </div>
     </div>
   </body>
