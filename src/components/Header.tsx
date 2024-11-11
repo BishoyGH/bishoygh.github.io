@@ -33,9 +33,9 @@ const Header: React.FC<HeaderProps> = ({ lang, currentURL }) => {
         {NavItems[lang].map((item) => (
           <li
             className={cn(
-              "font-medium capitalize transition hover:text-indigo-700/90",
+              "font-medium capitalize transition hover:text-indigo-700/90 hover:dark:text-indigo-200",
               currentURL === item.url
-                ? "text-indigo-700 dark:text-indigo-400"
+                ? "text-indigo-600 dark:text-indigo-300"
                 : "",
             )}
             key={item.name}

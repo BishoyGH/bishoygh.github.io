@@ -28,7 +28,9 @@ const {
         "py-4 font-black capitalize",
         background === "none" ? "text-center text-6xl" : "",
         background === "code" ? "text-start text-8xl text-white" : "",
-        background === "none" && variant === "default" ? "text-indigo-700" : "",
+        background === "none" && variant === "default"
+          ? "text-indigo-600 dark:text-indigo-400"
+          : "",
         background === "none" && variant === "pageTitle"
           ? "mb-4 text-white"
           : "",
