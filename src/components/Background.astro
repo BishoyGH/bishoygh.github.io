@@ -1,0 +1,58 @@
+---
+import particles from "@/assets/images/particles.svg";
+---
+
+<div class="fixed top-0 -z-10 h-full w-full">
+  <div
+    id="background"
+    class="absolute top-0 z-[-2] h-screen w-screen bg-[#f4f0ff] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,#7877c64d,#ffffff00)] dark:bg-[#020008]"
+  >
+  </div>
+  <div
+    id="particles"
+    style={{
+      backgroundImage: `url('${particles.src}')`,
+    }}
+  >
+  </div>
+</div>
+
+<style>
+  #particles {
+    width: 100%;
+    height: 100%;
+    animation: particles 80s alternate infinite ease-in-out;
+    mask: linear-gradient(
+      90deg,
+      transparent,
+      white 20%,
+      white 80%,
+      transparent
+    );
+  }
+
+  @keyframes particles {
+    0% {
+      filter: blur(8px);
+      background-position: 0%;
+      opacity: 0.3;
+      background-size: 128px 128px;
+    }
+    25% {
+      opacity: 0.2;
+    }
+    50% {
+      filter: blur(6px);
+      background-position: 50% 100%;
+    }
+    75% {
+      opacity: 0.2;
+    }
+    100% {
+      filter: blur(10px);
+      background-position: 100% 50%;
+      opacity: 0.3;
+      background-size: 112px 112px;
+    }
+  }
+</style>

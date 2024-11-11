@@ -1,0 +1,45 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import MainLayout from "@/layouts/MainLayout.astro";
+import Hero from "@/components/Home/Hero.astro";
+import Section from "@/components/Section.astro";
+import Scroller from "@/components/Scroller.astro";
+import tech from "@/content/site/tech";
+import Services from "@/components/Services.astro";
+import Meta from "@/components/Meta.astro";
+import contacts from "@/content/site/contacts";
+import SEO from "@/content/site/SEO";
+const lang = "ar";
+const PORTFOLIO_URL = getRelativeLocaleUrl(lang, "portfolio");
+const WhatsApp_URL = contacts.find(
+  (contact) => contact.name === "WhatsApp",
+)!.url;
+---
+
+<MainLayout lang={lang}>
+  <Meta lang={lang} SEO={SEO[lang]} slot="seo" />
+  <Fragment slot="content">
+    <Hero
+      title="إبداع حلول ويب تميزك عن الآخرين"
+      subtitle="تحويل الأفكار إلى تجارب رقمية مؤثرة باستخدام أحدث تقنيات الويب."
+      primaryCTA_Text="تواصل معي"
+      primaryCTA_Action={WhatsApp_URL}
+      secondaryCTA_Text="استعرض أعمالي"
+      secondaryCTA_Action={PORTFOLIO_URL}
+    />
+    <Section title="نبذة عني" variant="fullWidth" background="code">
+      <p>
+        أنا بيشوي جمال، مطور ويب ذو خبرة في تطوير الـ <strong>
+          MERN وReact وWordPress</strong
+        >. أحب إنشاء تجارب رقمية فعّالة وسهلة الاستخدام ومؤثرة، أستفيد من
+        مهاراتي في JavaScript وHTML وCSS وPHP لإحياء الأفكار على الويب.
+      </p>
+    </Section>
+    <Section title="خدمات أقدمها">
+      <Services lang={lang} />
+    </Section>
+    <Section title="تقنيات استخدمها">
+      <Scroller items={tech} />
+    </Section>
+  </Fragment>
+</MainLayout>

@@ -1,0 +1,48 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+import MainLayout from "@/layouts/MainLayout.astro";
+import Hero from "@/components/Home/Hero.astro";
+import Section from "@/components/Section.astro";
+import Scroller from "@/components/Scroller.astro";
+import tech from "@/content/site/tech";
+import Services from "@/components/Services.astro";
+import Meta from "@/components/Meta.astro";
+
+import contacts from "@/content/site/contacts";
+import SEO from "@/content/site/SEO";
+const lang = "en";
+const PORTFOLIO_URL = getRelativeLocaleUrl(lang, "portfolio");
+const WhatsApp_URL = contacts.find(
+  (contact) => contact.name === "WhatsApp",
+)!.url;
+---
+
+<MainLayout lang={lang}>
+  <Meta lang={lang} SEO={SEO[lang]} slot="seo" />
+  <Fragment slot="content">
+    <Hero
+      title="Crafting Web Solutions That Stand Out"
+      subtitle="Transforming ideas into impactful digital experiences with modern web technologies."
+      primaryCTA_Text="Contact Me"
+      primaryCTA_Action={WhatsApp_URL}
+      secondaryCTA_Text="View Portfolio"
+      secondaryCTA_Action={PORTFOLIO_URL}
+    />
+    <Section title="About Me" variant="fullWidth" background="code">
+      <p>
+        I&apos;m Bishoy Gamal, a dedicated Full Stack Web Developer specializing
+        in the <strong> MERN stack, React, and WordPress development</strong>.
+        With a strong passion for creating efficient, user-friendly, and
+        impactful digital experiences, I leverage skills in JavaScript, HTML,
+        CSS, and PHP to bring ideas to life on the web.
+      </p>
+    </Section>
+    <Section title="Services I Provide">
+      <Services />
+    </Section>
+    <Section title="Tech­nologies I work with">
+      <Scroller items={tech} />
+    </Section>
+  </Fragment>
+</MainLayout>

@@ -1,0 +1,42 @@
+---
+import SocialNav from "@/components/SocialNav";
+
+interface Props {
+  lang: "ar" | "en";
+}
+
+const { lang = "en" } = Astro.props;
+---
+
+<footer
+  class="bg-gradient-to-r from-slate-950 to-indigo-950 py-12 text-center capitalize text-indigo-100"
+  data-locale={lang === "en" ? "en-us" : "ar-eg"}
+>
+  <SocialNav
+    size="xl"
+    variant="white"
+    className="sm:grid-col-3 mb-4 grid grid-cols-2 place-content-center md:flex"
+  />
+  {
+    lang === "en" ? (
+      <p>
+        <span id="date" data-locale="en-us" /> Bishoy Gamal. Crafted with
+        passion for the web. Thanks for visiting!
+      </p>
+    ) : (
+      <p>
+        <span id="date" data-locale="ar-eg" /> بيشوي جمال. مُصمم بشغف من أجلك.
+        شكرًا لزيارتك!
+      </p>
+    )
+  }
+</footer>
+
+<script>
+  const dateSpan = document.getElementById("date");
+  const locale = dateSpan?.dataset.locale;
+  const date = new Date().toLocaleDateString(locale, {
+    year: "numeric",
+  });
+  dateSpan!.innerHTML = `&copy;${date}`;
+</script>

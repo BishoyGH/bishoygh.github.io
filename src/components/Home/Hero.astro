@@ -1,0 +1,45 @@
+---
+import { Button } from "@/components/ui/button";
+import BlobImage from "@/components/BlobImage.astro";
+import WhatsAppOrder from "@/components/WhatsAppOrder.astro";
+
+interface Props {
+  title: string;
+  subtitle: string;
+  primaryCTA_Text: string;
+  primaryCTA_Action: string;
+  secondaryCTA_Text: string;
+  secondaryCTA_Action: string;
+}
+
+const {
+  title,
+  subtitle,
+  primaryCTA_Text,
+  primaryCTA_Action,
+  secondaryCTA_Text,
+  secondaryCTA_Action,
+} = Astro.props;
+---
+
+<section class="grid min-h-screen place-content-center px-4 pb-6 text-center">
+  <BlobImage />
+  <h1
+    class="bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-5xl font-extrabold leading-tight tracking-tight text-transparent sm:leading-tight lg:text-6xl lg:leading-relaxed rtl:leading-normal"
+  >
+    {title}
+  </h1>
+  <p
+    class="mx-auto my-4 max-w-3xl text-lg leading-normal text-slate-600 dark:text-slate-400"
+  >
+    {subtitle}
+  </p>
+  <div class="flex flex-col items-center justify-center gap-2 md:flex-row">
+    <a href={secondaryCTA_Action}>
+      <Button tabIndex={-1} variant="outline">
+        {secondaryCTA_Text}
+      </Button>
+    </a>
+    <WhatsAppOrder title={primaryCTA_Text} url={primaryCTA_Action} />
+  </div>
+</section>

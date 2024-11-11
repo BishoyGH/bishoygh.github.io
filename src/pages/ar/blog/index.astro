@@ -1,0 +1,55 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import Section from "@/components/Section.astro";
+import Meta from "@/components/Meta.astro";
+import SEO from "@/content/site/SEO";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+
+const lang = "ar";
+
+const posts = await getCollection("blog", (posts) => {
+  return posts.data.isDraft !== true && posts.data.language === lang;
+});
+---
+
+<MainLayout lang={lang}>
+  <Meta lang={lang} SEO={SEO[lang]} slot="seo" />
+  <Fragment slot="content">
+    <Section
+      title="المقالات"
+      variant="pageTitle"
+      background="none"
+      TitleTag="h1"
+    />
+    <main class="container mx-auto py-10">
+      <ul
+        class="grid gap-4 p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+      >
+        {
+          posts.map((post) => (
+            <li>
+              <a href={post.slug.replace(`${lang}/`, "")}>
+                <Image
+                  src={post.data.image.src}
+                  alt={post.data.image.alt}
+                  class="rounded-lg"
+                />
+              </a>
+              <div class="py-2">
+                <h2 class="text-xl transition hover:text-indigo-500">
+                  <a href={post.slug.replace(`${lang}/`, "")}>
+                    {post.data.title}
+                  </a>
+                </h2>
+                <small class="mt-1 block capitalize">
+                  نشر في {post.data.date.toLocaleDateString("en-us")}
+                </small>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+  </Fragment>
+</MainLayout>

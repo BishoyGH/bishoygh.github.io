@@ -1,0 +1,64 @@
+---
+import logo from "@/assets/images/Bishoy_Gamal.svg";
+interface SEO {
+  title: string;
+  description: string;
+  keywords: string[];
+  og: {
+    title: string;
+    description: string;
+    image: {
+      src: string;
+    };
+    url: string;
+  };
+  twitter: {
+    title: string;
+    description: string;
+    image: {
+      src: string;
+    };
+  };
+  canonicalUrl: string;
+}
+interface Props {
+  SEO: SEO;
+  lang: "en" | "ar";
+}
+
+const { SEO, lang } = Astro.props;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
+<!-- Primary Meta Tags -->
+<title>{SEO.title}</title>
+<meta name="description" content={SEO.description} />
+<meta name="keywords" content={SEO.keywords.join(", ")} />
+<meta name="author" content="Bishoy Gamal" />
+<meta name="robots" content="index, follow" />
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:logo" content={logo.src} />
+<meta property="og:title" content={SEO.og.title} />
+<meta property="og:description" content={SEO.og.description} />
+<meta property="og:image" content={SEO.og.image.src} />
+<meta property="og:url" content={SEO.og.url} />
+<meta property="og:type" content="website" />
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={SEO.twitter.title} />
+<meta name="twitter:description" content={SEO.twitter.description} />
+<meta name="twitter:image" content={SEO.twitter.image.src} />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={SEO.canonicalUrl} />
+
+<!-- Favicon and Theme Color -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<meta name="theme-color" content="#4338ca" />
+
+<!-- Multilingual Support -->
+<meta name="language" content={lang} />

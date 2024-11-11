@@ -1,0 +1,74 @@
+---
+interface Props {
+  title: string;
+  variant?: "default" | "fullWidth" | "pageTitle";
+  background?: "none" | "code";
+  TitleTag?: string;
+}
+const {
+  title,
+  variant = "default",
+  background = "none",
+  TitleTag = "h2",
+} = Astro.props;
+---
+
+<section
+  class:list={[
+    variant === "fullWidth" ? "py-24 shadow-xl" : "",
+    variant === "pageTitle" ? "bg-page-title py-16" : "",
+    variant === "default" && background === "none" ? "py-20" : "",
+    background !== "none" ? "bg-center bg-no-repeat md:bg-left-top" : "",
+    background === "code" ? "bg-code px-8" : "",
+  ]}
+>
+  <div class:list={["container mx-auto"]}>
+    <TitleTag
+      class:list={[
+        "py-4 font-black capitalize",
+        background === "none" ? "text-center text-6xl" : "",
+        background === "code" ? "text-start text-8xl text-white" : "",
+        background === "none" && variant === "default" ? "text-indigo-700" : "",
+        background === "none" && variant === "pageTitle"
+          ? "mb-4 text-white"
+          : "",
+      ]}
+    >
+      {title}
+    </TitleTag>
+    <div
+      class:list={[
+        background === "none"
+          ? "text-center"
+          : "mx-auto py-4 text-start text-xl leading-relaxed text-indigo-100/90 md:mx-0 md:max-w-[100ch] md:px-0",
+      ]}
+    >
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  :root {
+    --from: #312e81;
+    --to: #4c1d95;
+  }
+  :root[lang="ar"] {
+    --direction: left;
+  }
+  :root.dark {
+    --from: #020617;
+    --to: #1e1b4b;
+  }
+
+  .bg-page-title {
+    background-image: linear-gradient(45deg, var(--from), var(--to));
+  }
+
+  .bg-code {
+    background:
+      url("data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20stroke%3D%22%23ffffff11%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20viewBox%3D%220%200%2024%2024%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22m7%2011%202-2-2-2%22%2F%3E%0A%3Cpath%20d%3D%22m11%2013h4%22%2F%3E%0A%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2218%22%20height%3D%2218%22%20rx%3D%222%22%20ry%3D%222%22%2F%3E%0A%3C%2Fsvg%3E")
+        no-repeat top var(--direction, right),
+      linear-gradient(45deg, var(--from), var(--to));
+  }
+</style>
