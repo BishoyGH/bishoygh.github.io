@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ lang, currentURL }) => {
       <div className="flex items-center gap-1">
         <div className="flex items-center gap-2 lg:hidden">
           <Sheet>
-            <SheetTrigger>
+            <SheetTrigger aria-label="Open Main Menu" title="Open Main Menu">
               <span className="inline-flex h-9 w-9 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-input bg-background text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0">
                 <Menu className="h-5 w-5 rotate-0 scale-100" />
               </span>

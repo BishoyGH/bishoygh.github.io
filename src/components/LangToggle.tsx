@@ -15,7 +15,11 @@ interface LangToggleProps {
 export const LangToggle: React.FC<LangToggleProps> = ({ currentURL }) => {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger
+        asChild
+        aria-label="Change Language"
+        title="Change Language"
+      >
         <Button variant="outline" size="icon">
           <Globe className="" />
           <span className="sr-only">Toggle Language</span>
