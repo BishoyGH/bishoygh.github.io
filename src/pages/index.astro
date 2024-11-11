@@ -1,3 +1,17 @@
 ---
+import MainLayout from "@/layouts/MainLayout.astro";
+import Meta from "@/components/Meta.astro";
+import SEO from "@/content/site/SEO";
+import { LoaderIcon } from "lucide-react";
 
+const lang = "ar";
 ---
+
+<MainLayout lang={lang}>
+  <Meta lang={lang} SEO={SEO[lang]} slot="seo" />
+  <Fragment slot="content">
+    <section class="flex items-center justify-center">
+      <LoaderIcon className="animate-spin" size={64} />
+    </section>
+  </Fragment>
+</MainLayout>

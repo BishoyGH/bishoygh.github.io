@@ -1,0 +1,26 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import Meta from "@/components/Meta.astro";
+import SEO from "@/content/site/SEO";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import BlobImage from "@/components/BlobImage.astro";
+
+const lang = "ar";
+
+const HomeURL = getRelativeLocaleUrl(lang);
+---
+
+<MainLayout lang={lang}>
+  <Meta lang={lang} SEO={SEO[lang]} slot="seo" />
+  <Fragment slot="content">
+    <section
+      class="container mx-auto flex grow flex-col items-center justify-center"
+    >
+      <BlobImage />
+      <h1 class="mb-2 text-5xl">صفحة غير موجوده</h1>
+      <a class="hover:text-indigo-500" href={HomeURL}
+        >عودة إلي الصفحة الرئيسية</a
+      >
+    </section>
+  </Fragment>
+</MainLayout>

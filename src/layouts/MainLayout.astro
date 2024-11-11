@@ -28,7 +28,6 @@ const currentURL = Astro.url.pathname;
 
       gtag("config", "G-FC1XF8KJH5");
     </script>
-
     <slot name="seo" />
     {
       lang === "ar" && (
@@ -48,7 +47,7 @@ const currentURL = Astro.url.pathname;
   >
     <Background />
     <Header lang={lang} currentURL={currentURL} client:load />
-    <section class="grow-[1] pt-20">
+    <section class="flex grow-[1] flex-col pt-20">
       <slot name="content" />
     </section>
     <Footer lang={lang} />
