@@ -31,7 +31,7 @@ export const LangToggle: React.FC<LangToggleProps> = ({ currentURL }) => {
           </DropdownMenuItem>
         </a>
         <a
-          href={getRelativeLocaleUrl("ar", currentURL.slice(3))}
+          href={getRelativeLocaleUrl("ar", currentURL)}
           className="cursor-pointer"
         >
           <DropdownMenuItem className="justify-center">
