@@ -4,27 +4,26 @@ const SEO = {
   en: {
     title: "Bishoy Gamal | Full Stack Web Developer",
     description:
-      "Welcome to Bishoy Gamal's portfolio. Discover my projects, services, and blog about web development.",
+      "Welcome to Bishoy Gamal's portfolio. Discover my projects and services",
     keywords: [
       "web development",
+      "web developer",
       "portfolio",
       "full stack developer",
       "MERN Stack Developer",
       "JavaScript",
       "React",
-      "WordPress",
       "Egypt",
     ],
     og: {
       title: "Bishoy Gamal | Full Stack Web Developer",
-      description:
-        "Discover my projects, services, and blog about web development.",
+      description: "Discover my projects and services",
       image: img,
       url: "https://bishoygh.github.io",
     },
     twitter: {
       title: "Bishoy Gamal | Full Stack Web Developer",
-      description: "Explore Bishoy Gamal's portfolio and web development blog.",
+      description: "Explore Bishoy Gamal's web development portfolio.",
       image: img,
     },
 
@@ -33,8 +32,7 @@ const SEO = {
 
   ar: {
     title: "بيشوي جمال | مطور ويب",
-    description:
-      "مرحبًا بك في معرض أعمال بيشوي جمال. اكتشف مشاريعي، وخدماتي، ومدونتي عن تطوير الويب.",
+    description: "مرحبًا بك في معرض أعمال بيشوي جمال.اكتشف مشاريعي وخدماتي.",
     keywords: [
       "تطوير ويب",
       "تصميم مواقع",
@@ -44,23 +42,20 @@ const SEO = {
       "مطور MERN Stack",
       "جافاسكربت",
       "رياكت",
-      "ووردبريس",
       "مصر",
       "مصمم مواقع",
       "مبرمج",
-      "ثيم ووردبريس",
-      "ووردبريس مصر",
       "إنشاء موقع",
     ],
     og: {
       title: "بيشوي جمال | مطور ويب",
-      description: "اكتشف مشاريعي، وخدماتي، ومدونتي عن تطوير الويب.",
+      description: "مرحبًا بك في معرض أعمال بيشوي جمال.اكتشف مشاريعي وخدماتي.",
       image: img,
       url: "https://bishoygh.github.io",
     },
     twitter: {
       title: "بيشوي جمال | مطور ويب",
-      description: "استعرض معرض أعمال بيشوي جمال ومدونته عن تطوير الويب.",
+      description: "مرحبًا بك في معرض أعمال بيشوي جمال.اكتشف مشاريعي وخدماتي.",
       image: img,
     },
     canonicalUrl: "https://bishoygh.github.io",
